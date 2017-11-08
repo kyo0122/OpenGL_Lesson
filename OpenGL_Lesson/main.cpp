@@ -9,6 +9,7 @@
 #include <iostream>
 using namespace std;
 
+// warning⚠️を無視するための記述です
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
 #include <GLFW/glfw3.h>
