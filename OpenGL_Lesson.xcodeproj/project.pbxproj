@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BAC5A32B1FB2F47E009D42AA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAC5A32A1FB2F47E009D42AA /* main.cpp */; };
+		BAC5A3321FB2F4CC009D42AA /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC5A3311FB2F4CC009D42AA /* OpenGL.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		BAC5A3271FB2F47E009D42AA /* OpenGL_Lesson */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OpenGL_Lesson; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAC5A32A1FB2F47E009D42AA /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		BAC5A3311FB2F4CC009D42AA /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAC5A3321FB2F4CC009D42AA /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +44,7 @@
 		BAC5A31E1FB2F47E009D42AA = {
 			isa = PBXGroup;
 			children = (
+				BAC5A3311FB2F4CC009D42AA /* OpenGL.framework */,
 				BAC5A3291FB2F47E009D42AA /* OpenGL_Lesson */,
 				BAC5A3281FB2F47E009D42AA /* Products */,
 			);
@@ -209,6 +213,8 @@
 		BAC5A32F1FB2F47E009D42AA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -216,6 +222,8 @@
 		BAC5A3301FB2F47E009D42AA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
