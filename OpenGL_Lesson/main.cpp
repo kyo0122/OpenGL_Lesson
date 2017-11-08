@@ -7,66 +7,186 @@
 //
 
 #include <iostream>
+#include <vector>
+#include <fstream>
 using namespace std;
 
-// warning⚠️を無視するための記述です
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#include <GL/glew.h>
 #include <GLFW/glfw3.h>
-
 #pragma clang pop
 
-
+// glfwWindowHintをまとめた処理です
+void initWindowHints();
+GLuint LoadShaders(const char* vertex_file_path,const char* fragment_file_path);
+void ReadFile(string* code, const char* filePath);
+void CompileShader(GLuint id, string* code);
+void CheckShaderProgram(GLuint id, GLint result, int* InfoLogLength);
 
 int main() {
     
-    // glfwの初期化です。失敗するとTrueを返します。必ず実行してください。
     if (!glfwInit()){
         return -1;
     }
     
-    // OpenGLのバージョンなどの設定です。
+    initWindowHints();
+    
+    GLFWwindow* window = glfwCreateWindow(640, 480, "🔺", NULL, NULL);
+    
+    if (!window){
+        glfwTerminate();
+        return -1;
+    }
+    
+    glfwMakeContextCurrent(window);
+    
+    // GLEWの初期化処理です。
+    glewExperimental = true;
+    if (glewInit() != GLEW_OK) {
+        glfwTerminate();
+        return -1;
+    }
+    
+    
+    // 配列バッファオブジェクトの生成
+    GLuint VertexArrayID;
+    glGenVertexArrays(1, &VertexArrayID);
+    glBindVertexArray(VertexArrayID);
+    
+    // 三角の頂点
+    static const GLfloat vertex[] = {
+        -1.0f, -1.0f, 0.0f,
+         1.0f, -1.0f, 0.0f,
+         0.0f,  1.0f, 0.0f,
+    };
+    
+    
+    // シェーダー読み込み
+    GLuint programID = LoadShaders( "Red.vs", "Red.fs" );
+    
+    
+    // 今扱うデータは位置だけなので、頂点バッファオブジェクトを1つ生成する
+    GLuint vertexbuffer;
+    glGenBuffers(1, &vertexbuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertex), vertex, GL_STATIC_DRAW);
+    
+    
+    while (!glfwWindowShouldClose(window)&&glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS)
+    {
+        glClear(GL_COLOR_BUFFER_BIT);
+        
+        // ここから三角の描画処理
+        glUseProgram(programID);
+        
+        glEnableVertexAttribArray(0);   // 頂点シェーダーのアトリビュート変数[location=0~]に渡すデータだという意思表示
+        
+        glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+        glVertexAttribPointer(0             // アトリビュート変数
+                              ,3            // 位置はxyzの3つのデータ
+                              ,GL_FLOAT     // データの型
+                              ,GL_FALSE     // -1.0~1.0に正規化するか
+                              ,0            // 配列のストライド
+                              ,(void*)0);   // 配列バッファのオフセット
+        
+        glDrawArrays(GL_TRIANGLES, 0, 3);   // 指定した描画モードで描画
+        
+        glDisableVertexAttribArray(0);  // ここまで頂点シェーダーのアトリビュート変数に渡すデータだという意思表示
+        
+        glfwSwapBuffers(window);
+        glfwPollEvents();
+    }
+    
+    glfwTerminate();
+    return 0;
+}
+
+void initWindowHints()
+{
     glfwWindowHint(GLFW_SAMPLES, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     glfwWindowHint(GLFW_DECORATED ,true);  // <-これをfalseにすると…
-    
-    
-    GLFWwindow* window;                     // glfwでは複数のウィンドウを利用することができます。
-    int width  = 640;            // 初期生成時のウィンドウの横幅です。
-    int height = 480;            // 初期生成時のウィンドウの縦幅です。
-    const char* windowName = "ｳｨﾝﾄﾞｳﾀﾞﾖ-🌝 〜そして日本語も〜";  // ウィンドウに表示される名前です。
-    
-    // glfwCreateWindow:ウィンドウを生成します。左側のNULLをglfwGetPrimaryMonitor()にすると、フルスクリーンモードになります。
-    window = glfwCreateWindow(width, height, windowName, NULL, NULL);
-    
-    // ウィンドウ生成が失敗するとTrueを返します。
-    if (!window){
-        glfwTerminate();    // glfwの終了時に呼び出す関数です。
-        return -1;
-    }
-    
-    // ウィンドウのコンテキストをカレントにします。(これから行う処理は指定したwindowに対するものですよ…的なことですよ、多分。)
-    glfwMakeContextCurrent(window);
-    
-    
-    // glfwWindowShouldClose:ウィンドウが閉じられた時にTrueを返します。
-    // glfwGetKey: 指定windowでのキー入力を取得します。状態確認はGLFW_PRESSなどで確認します。
-    while (!glfwWindowShouldClose(window)&&glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS)
-    {
-        glClear(GL_COLOR_BUFFER_BIT);   // 指定バッファ(今回は色バッファ)の初期化を行います。そのうち透過度、深度なども指定して初期化します。
-        glClearColor(.3, .3, .3, 1);    // 指定した色で画面をクリアします。
-        
-        
-        
-        glfwSwapBuffers(window);    // 表示されている画面の裏で用意された絵に切り替えます。
-        glfwPollEvents();   // イベントの確認です。ボタン入力とかのことです。
-    }
-    
-    glfwTerminate();    // さっき出てきました。
-    
-    
-    return 0;
 }
+
+// ファイルを読み込みます
+void ReadFile(string* out, const char* filePath)
+{
+    ifstream fileStream(filePath, ios::in);
+    if(fileStream.is_open()){
+        string line = "";
+        while(getline(fileStream, line)){
+            *out += "\n"+line;
+        }
+        fileStream.close();
+    }else{
+        cout << "ファイルが読み込めません。パスが正しいか確認してください。\n";
+        return;
+    }
+}
+
+// シェーダープログラムのエラーをチェックします
+void CheckShaderProgram(GLuint id, GLint result, int* InfoLogLength)
+{
+    glGetShaderiv(id, GL_COMPILE_STATUS, &result);
+    glGetShaderiv(id, GL_INFO_LOG_LENGTH, InfoLogLength);
+    
+    if (*InfoLogLength > 0){
+        vector<char> programErrorMessage(*(InfoLogLength+1));
+        glGetShaderInfoLog(id, *InfoLogLength, NULL, &programErrorMessage[0]);
+        printf("%s\n", &programErrorMessage[0]);
+    }
+}
+
+// シェーダーをコンパイルします
+void CompileShader(GLuint id, string* code)
+{
+    char const* sourcePointer = code->c_str();
+    glShaderSource(id, 1, &sourcePointer, NULL);
+    glCompileShader(id);
+}
+
+// シェーダーを読み込む関数です
+GLuint LoadShaders(const char* vertex_file_path,const char* fragment_file_path)
+{
+    // エラーチェック用変数
+    GLint Result = GL_FALSE;
+    int InfoLogLength;
+    
+    
+    // 頂点シェーダーを生成
+    GLuint VertexShaderID = glCreateShader(GL_VERTEX_SHADER);
+    string VertexShaderCode;
+    ReadFile(&VertexShaderCode, vertex_file_path);
+    CompileShader(VertexShaderID, &VertexShaderCode);
+    CheckShaderProgram(VertexShaderID, Result, &InfoLogLength);
+    
+    // フラグメントシェーダーを生成
+    GLuint FragmentShaderID = glCreateShader(GL_FRAGMENT_SHADER);
+    string FragmentShaderCode;
+    ReadFile(&FragmentShaderCode, fragment_file_path);
+    CompileShader(FragmentShaderID, &FragmentShaderCode);
+    CheckShaderProgram(FragmentShaderID, Result, &InfoLogLength);
+    
+    
+    // シェーダーを合体
+    GLuint ProgramID = glCreateProgram();
+    glAttachShader(ProgramID, VertexShaderID);
+    glAttachShader(ProgramID, FragmentShaderID);
+    glLinkProgram(ProgramID);
+    CheckShaderProgram(ProgramID, Result, &InfoLogLength);
+    
+    // 合体したやつがあるので、各シェーダーを削除
+    glDetachShader(ProgramID, VertexShaderID);
+    glDetachShader(ProgramID, FragmentShaderID);
+    
+    glDeleteShader(VertexShaderID);
+    glDeleteShader(FragmentShaderID);
+    
+    return ProgramID;
+}
+
+
