@@ -34,9 +34,9 @@ int main() {
     
     
     GLFWwindow* window;                     // glfwでは複数のウィンドウを利用することができます。
-    int width           =   640;            // 初期生成時のウィンドウの横幅です。
-    int height          =   480;            // 初期生成時のウィンドウの縦幅です。
-    const char* windowName    =   "ｳｨﾝﾄﾞｳﾀﾞﾖ-🌝 〜そして日本語も〜";  // ウィンドウに表示される名前です。
+    int width  = 640;            // 初期生成時のウィンドウの横幅です。
+    int height = 480;            // 初期生成時のウィンドウの縦幅です。
+    const char* windowName = "ｳｨﾝﾄﾞｳﾀﾞﾖ-🌝 〜そして日本語も〜";  // ウィンドウに表示される名前です。
     
     // glfwCreateWindow:ウィンドウを生成します。左側のNULLをglfwGetPrimaryMonitor()にすると、フルスクリーンモードになります。
     window = glfwCreateWindow(width, height, windowName, NULL, NULL);
@@ -55,16 +55,16 @@ int main() {
     // glfwGetKey: 指定windowでのキー入力を取得します。状態確認はGLFW_PRESSなどで確認します。
     while (!glfwWindowShouldClose(window)&&glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS)
     {
-        glClear(GL_COLOR_BUFFER_BIT);
-        glClearColor(.3, .3, .3, 1);
+        glClear(GL_COLOR_BUFFER_BIT);   // 指定バッファ(今回は色バッファ)の初期化を行います。そのうち透過度、深度なども指定して初期化します。
+        glClearColor(.3, .3, .3, 1);    // 指定した色で画面をクリアします。
         
         
         
-        glfwSwapBuffers(window);
-        glfwPollEvents();
+        glfwSwapBuffers(window);    // 表示されている画面の裏で用意された絵に切り替えます。
+        glfwPollEvents();   // イベントの確認です。ボタン入力とかのことです。
     }
     
-    glfwTerminate();
+    glfwTerminate();    // さっき出てきました。
     
     
     return 0;
