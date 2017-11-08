@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C3AC79F1FB3923000411A73 /* Red.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6CD13A5D1FB385E20024DF97 /* Red.fs */; };
+		6C3AC7A01FB3923000411A73 /* Red.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6CD13A5E1FB386190024DF97 /* Red.vs */; };
 		BA6A4F3A1FB34D8B00F79427 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA6A4F381FB34D8B00F79427 /* libGLEW.2.1.0.dylib */; };
 		BA6A4F3B1FB34D8B00F79427 /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA6A4F391FB34D8B00F79427 /* libglfw.3.2.dylib */; };
 		BAC5A32B1FB2F47E009D42AA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAC5A32A1FB2F47E009D42AA /* main.cpp */; };
@@ -14,6 +16,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		6C3AC79B1FB38FB300411A73 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				6C3AC79F1FB3923000411A73 /* Red.fs in CopyFiles */,
+				6C3AC7A01FB3923000411A73 /* Red.vs in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BAC5A3251FB2F47E009D42AA /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -49,6 +62,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C3AC79E1FB3921000411A73 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				6CD13A5D1FB385E20024DF97 /* Red.fs */,
+				6CD13A5E1FB386190024DF97 /* Red.vs */,
+			);
+			name = Shaders;
+			sourceTree = "<group>";
+		};
 		BAC5A31E1FB2F47E009D42AA = {
 			isa = PBXGroup;
 			children = (
@@ -72,8 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				BAC5A32A1FB2F47E009D42AA /* main.cpp */,
-				6CD13A5D1FB385E20024DF97 /* Red.fs */,
-				6CD13A5E1FB386190024DF97 /* Red.vs */,
+				6C3AC79E1FB3921000411A73 /* Shaders */,
 			);
 			path = OpenGL_Lesson;
 			sourceTree = "<group>";
@@ -88,6 +109,7 @@
 				BAC5A3231FB2F47E009D42AA /* Sources */,
 				BAC5A3241FB2F47E009D42AA /* Frameworks */,
 				BAC5A3251FB2F47E009D42AA /* CopyFiles */,
+				6C3AC79B1FB38FB300411A73 /* CopyFiles */,
 			);
 			buildRules = (
 			);
