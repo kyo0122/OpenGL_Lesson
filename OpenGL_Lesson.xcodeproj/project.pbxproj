@@ -26,6 +26,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6CD13A5D1FB385E20024DF97 /* Red.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Red.fs; sourceTree = "<group>"; };
+		6CD13A5E1FB386190024DF97 /* Red.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Red.vs; sourceTree = "<group>"; };
 		BA6A4F381FB34D8B00F79427 /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
 		BA6A4F391FB34D8B00F79427 /* libglfw.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.2.dylib; path = ../../../../../usr/local/Cellar/glfw/3.2.1/lib/libglfw.3.2.dylib; sourceTree = "<group>"; };
 		BAC5A3271FB2F47E009D42AA /* OpenGL_Lesson */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OpenGL_Lesson; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +72,8 @@
 			isa = PBXGroup;
 			children = (
 				BAC5A32A1FB2F47E009D42AA /* main.cpp */,
+				6CD13A5D1FB385E20024DF97 /* Red.fs */,
+				6CD13A5E1FB386190024DF97 /* Red.vs */,
 			);
 			path = OpenGL_Lesson;
 			sourceTree = "<group>";
