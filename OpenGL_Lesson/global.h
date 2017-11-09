@@ -14,10 +14,20 @@
 #include <fstream>
 using namespace std;
 
+
+
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+
+#include <glm/glm.hpp>
+using namespace glm;
+
+#include <assimp/Importer.hpp>
+#include <assimp/postprocess.h>
+#include <assimp/scene.h>
+
 #pragma clang pop
 
 #endif /* global_h */

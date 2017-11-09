@@ -23,4 +23,7 @@ void CompileShader(GLuint id, string* code);
 // コンパイルしたシェーダーに不備がないか確認する処理です
 void CheckShaderProgram(GLuint id, GLint result, int* InfoLogLength);
 
+// メッシュを読み込む関数です
+void LoadMesh(const char* path, vector<vec3>* vertices);
+
 #endif /* Loader_hpp */
