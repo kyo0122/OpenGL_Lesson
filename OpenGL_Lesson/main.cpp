@@ -9,6 +9,15 @@
 #include "global.h"
 #include "Loader.hpp"
 
+// OpenGLで行列などを扱いやすくしてくれるライブラリです
+#include <glm/glm.hpp>
+using namespace glm;
+
+// 3Dファイルを読み込むためのライブラリです
+#include <assimp/Importer.hpp>
+#include <assimp/postprocess.h>
+#include <assimp/scene.h>
+
 // glfwWindowHintをまとめた処理です
 void initWindowHints();
 
@@ -31,7 +40,6 @@ int main() {
     
     glfwMakeContextCurrent(window);
     
-    // GLEWの初期化処理です。
     glewExperimental = true;
     if (glewInit() != GLEW_OK) {
         glfwTerminate();
@@ -39,29 +47,31 @@ int main() {
     }
     
     
-    // 配列バッファオブジェクトの生成
-    GLuint vertexArray;
-    glGenVertexArrays(1, &vertexArray);
-    glBindVertexArray(vertexArray);
+    vector<vec3> vertices;  // 頂点を格納する変数です
+    Assimp::Importer importer;  // 3Dファイルの読み込みに使う変数です。ファイルの情報を格納します。
     
-    // 三角の頂点
-    static const GLfloat vertex[] = {
-        -1.0f, -1.0f, 0.0f,
-         1.0f, -1.0f, 0.0f,
-         0.0f,  1.0f, 0.0f,
-    };
+    // 3Dファイルが、シーン/メッシュ(場合によっては複数)という構造になっているので、
+    // sceneを取得し、そこからメッシュの情報にアクセスしています。
+    const aiScene* scene = importer.ReadFile("monkey.obj", 0);
+    const aiMesh* mesh = scene->mMeshes[0];
+    
+    for(int i=0; i < mesh->mNumVertices; i++){
+        aiVector3D pos = mesh->mVertices[i];
+        vertices.push_back(vec3(pos.x, pos.y, pos.z));
+    }
     
     
     // シェーダー読み込み
     GLuint programID = LoadShaders( "Red.vs", "Red.fs" );
     
+    GLuint vertexArray;
+    glGenVertexArrays(1, &vertexArray);
+    glBindVertexArray(vertexArray);
     
-    // 今扱うデータは位置だけなので、バッファオブジェクトを1つ生成します。(VBOで調べると詳しく解説されてます)
-    // UVとかを扱うと、これが増えます。
     GLuint vertexBuffer;
     glGenBuffers(1, &vertexBuffer);
     glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertex), vertex, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, vertices.size()*sizeof(vec3), &vertices[0], GL_STATIC_DRAW);
     
     
     while (!glfwWindowShouldClose(window)&&glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS)
@@ -70,22 +80,13 @@ int main() {
         
         /* ここから三角の描画処理 */
         
-        // 指定したシェーダーを使います。
         glUseProgram(programID);
-        
-        glEnableVertexAttribArray(0);   // 頂点シェーダーのアトリビュート変数[location=0~]に渡すデータだという意思表示です。
-        
+        glEnableVertexAttribArray(0);
         glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-        glVertexAttribPointer(0             // アトリビュート変数。頂点シェーダーのlocationで指定した数字です。
-                              ,3            // 位置はxyzの3つのデータ
-                              ,GL_FLOAT     // データの型
-                              ,GL_FALSE     // -1.0~1.0に正規化するか
-                              ,0            // 配列のストライド
-                              ,(void*)0);   // 配列バッファのオフセット
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
         
-        glDrawArrays(GL_TRIANGLES, 0, 3);   // 指定した描画モードで描画
-        
-        glDisableVertexAttribArray(0);  // ここまで頂点シェーダーのlocation=0に渡すデータだという意思表示
+        glDrawArrays(GL_TRIANGLES, 0, (int)(vertices.size()));
+        glDisableVertexAttribArray(0);
         
         glfwSwapBuffers(window);
         glfwPollEvents();
