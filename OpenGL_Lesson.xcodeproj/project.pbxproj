@@ -12,6 +12,7 @@
 		6C3AC7A21FB4B39000411A73 /* UVCheckerMap01-1024.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C3AC7A11FB4B29D00411A73 /* UVCheckerMap01-1024.png */; };
 		6C5F5EBE1FB4B70A00AA508F /* libpng16.16.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5F5EBD1FB4B70A00AA508F /* libpng16.16.dylib */; };
 		6C5F5ED21FB4BEBC00AA508F /* libassimp.4.0.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5F5ED11FB4BEBB00AA508F /* libassimp.4.0.1.dylib */; };
+		6C5F5ED61FB4BF6100AA508F /* Loader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C5F5ED41FB4BF6100AA508F /* Loader.cpp */; };
 		BA6A4F3A1FB34D8B00F79427 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA6A4F381FB34D8B00F79427 /* libGLEW.2.1.0.dylib */; };
 		BA6A4F3B1FB34D8B00F79427 /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA6A4F391FB34D8B00F79427 /* libglfw.3.2.dylib */; };
 		BAC5A32B1FB2F47E009D42AA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAC5A32A1FB2F47E009D42AA /* main.cpp */; };
@@ -47,6 +48,8 @@
 		6C5F5EBD1FB4B70A00AA508F /* libpng16.16.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpng16.16.dylib; path = ../../../../../usr/local/Cellar/libpng/1.6.34/lib/libpng16.16.dylib; sourceTree = "<group>"; };
 		6C5F5ED11FB4BEBB00AA508F /* libassimp.4.0.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.4.0.1.dylib; path = ../../../../../usr/local/Cellar/assimp/4.0.1/lib/libassimp.4.0.1.dylib; sourceTree = "<group>"; };
 		6C5F5ED31FB4BEF700AA508F /* global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = global.h; sourceTree = "<group>"; };
+		6C5F5ED41FB4BF6100AA508F /* Loader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Loader.cpp; sourceTree = "<group>"; };
+		6C5F5ED51FB4BF6100AA508F /* Loader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Loader.hpp; sourceTree = "<group>"; };
 		6CD13A5D1FB385E20024DF97 /* Red.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Red.fs; sourceTree = "<group>"; };
 		6CD13A5E1FB386190024DF97 /* Red.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Red.vs; sourceTree = "<group>"; };
 		BA6A4F381FB34D8B00F79427 /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
@@ -123,6 +126,8 @@
 			children = (
 				6C5F5ED31FB4BEF700AA508F /* global.h */,
 				BAC5A32A1FB2F47E009D42AA /* main.cpp */,
+				6C5F5ED41FB4BF6100AA508F /* Loader.cpp */,
+				6C5F5ED51FB4BF6100AA508F /* Loader.hpp */,
 				6C3AC7A31FB4B39500411A73 /* Texture */,
 				6C3AC79E1FB3921000411A73 /* Shaders */,
 			);
@@ -186,6 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C5F5ED61FB4BF6100AA508F /* Loader.cpp in Sources */,
 				BAC5A32B1FB2F47E009D42AA /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
