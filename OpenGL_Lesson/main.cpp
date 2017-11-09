@@ -6,16 +6,7 @@
 //  Copyright © 2017年 kyo. All rights reserved.
 //
 
-#include <iostream>
-#include <vector>
-#include <fstream>
-using namespace std;
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdocumentation"
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
-#pragma clang pop
+#include "global.h"
 
 // glfwWindowHintをまとめた処理です
 void initWindowHints();
