@@ -12,6 +12,7 @@ Camera::Camera(vec3 position, GLFWwindow *window)
 {
     pos = position;
     
+    // ウィンドウの縦横幅を取得して、アスペクト比を求めています。
     int w, h;
     glfwGetWindowSize(window, &w, &h);
     aspect = w / h;
@@ -27,9 +28,6 @@ void Camera::controller(GLFWwindow *window)
     float delta_time = current_time - last_time;
     
     // マウスの移動量に伴う視点の移動
-    int w, h;
-    glfwGetWindowSize(window, &w, &h);
-    aspect = w / h;
     double xpos, ypos;
     glfwGetCursorPos(window, &xpos, &ypos);
     if (last_xpos==NULL || last_ypos==NULL) {
@@ -37,9 +35,11 @@ void Camera::controller(GLFWwindow *window)
         last_ypos = ypos;
     }
     
+    // マウスの移動量×速度分、カメラの角度を変更しています
     horizontal_angle += mouse_speed * (last_xpos - xpos);
     vertical_angle += mouse_speed * (last_ypos - ypos);
     
+    // カメラの向き(Z)と右(X)を求めて、上(Y)を計算しています。
     vec3 direction = vec3(cos(vertical_angle) * sin(horizontal_angle),
                           sin(vertical_angle),
                           cos(vertical_angle) * cos(horizontal_angle)
