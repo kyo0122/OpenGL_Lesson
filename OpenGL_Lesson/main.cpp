@@ -19,9 +19,17 @@ using namespace std;
 
 // glfwWindowHintをまとめた処理です
 void initWindowHints();
+
+// シェーダーを読み込む処理です
 GLuint LoadShaders(const char* vertex_file_path,const char* fragment_file_path);
+
+// ファイルを読み込む処理です
 void ReadFile(string* code, const char* filePath);
+
+// シェーダーをコンパイルする処理です
 void CompileShader(GLuint id, string* code);
+
+// コンパイルしたシェーダーに不備がないか確認する処理です
 void CheckShaderProgram(GLuint id, GLint result, int* InfoLogLength);
 
 int main() {
@@ -50,9 +58,9 @@ int main() {
     
     
     // 配列バッファオブジェクトの生成
-    GLuint VertexArrayID;
-    glGenVertexArrays(1, &VertexArrayID);
-    glBindVertexArray(VertexArrayID);
+    GLuint vertexArray;
+    glGenVertexArrays(1, &vertexArray);
+    glBindVertexArray(vertexArray);
     
     // 三角の頂点
     static const GLfloat vertex[] = {
@@ -66,10 +74,11 @@ int main() {
     GLuint programID = LoadShaders( "Red.vs", "Red.fs" );
     
     
-    // 今扱うデータは位置だけなので、頂点バッファオブジェクトを1つ生成する
-    GLuint vertexbuffer;
-    glGenBuffers(1, &vertexbuffer);
-    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+    // 今扱うデータは位置だけなので、バッファオブジェクトを1つ生成します。(VBOで調べると詳しく解説されてます)
+    // UVとかを扱うと、これが増えます。
+    GLuint vertexBuffer;
+    glGenBuffers(1, &vertexBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertex), vertex, GL_STATIC_DRAW);
     
     
@@ -77,13 +86,15 @@ int main() {
     {
         glClear(GL_COLOR_BUFFER_BIT);
         
-        // ここから三角の描画処理
+        /* ここから三角の描画処理 */
+        
+        // 指定したシェーダーを使います。
         glUseProgram(programID);
         
-        glEnableVertexAttribArray(0);   // 頂点シェーダーのアトリビュート変数[location=0~]に渡すデータだという意思表示
+        glEnableVertexAttribArray(0);   // 頂点シェーダーのアトリビュート変数[location=0~]に渡すデータだという意思表示です。
         
-        glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-        glVertexAttribPointer(0             // アトリビュート変数
+        glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+        glVertexAttribPointer(0             // アトリビュート変数。頂点シェーダーのlocationで指定した数字です。
                               ,3            // 位置はxyzの3つのデータ
                               ,GL_FLOAT     // データの型
                               ,GL_FALSE     // -1.0~1.0に正規化するか
@@ -92,7 +103,7 @@ int main() {
         
         glDrawArrays(GL_TRIANGLES, 0, 3);   // 指定した描画モードで描画
         
-        glDisableVertexAttribArray(0);  // ここまで頂点シェーダーのアトリビュート変数に渡すデータだという意思表示
+        glDisableVertexAttribArray(0);  // ここまで頂点シェーダーのlocation=0に渡すデータだという意思表示
         
         glfwSwapBuffers(window);
         glfwPollEvents();
