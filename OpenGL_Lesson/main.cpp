@@ -21,8 +21,6 @@ using namespace glm;
 // glfwWindowHintをまとめた処理です
 void initWindowHints();
 
-
-
 int main() {
     
     if (!glfwInit()){
@@ -31,13 +29,11 @@ int main() {
     
     initWindowHints();
     
-    GLFWwindow* window = glfwCreateWindow(640, 480, "🔺", NULL, NULL);
-    
+    GLFWwindow* window = glfwCreateWindow(640, 480, "🐵", NULL, NULL);
     if (!window){
         glfwTerminate();
         return -1;
     }
-    
     glfwMakeContextCurrent(window);
     
     glewExperimental = true;
@@ -46,11 +42,10 @@ int main() {
         return -1;
     }
     
-    
     vector<vec3> vertices;  // 頂点を格納する変数です
     Assimp::Importer importer;  // 3Dファイルの読み込みに使う変数です。ファイルの情報を格納します。
     
-    // 3Dファイルが、シーン/メッシュ(場合によっては複数)という構造になっているので、
+    // 3Dファイルが、シーン/メッシュ(場合によっては複数のメッシュ)という構造になっているので、
     // sceneを取得し、そこからメッシュの情報にアクセスしています。
     const aiScene* scene = importer.ReadFile("monkey.obj", 0);
     const aiMesh* mesh = scene->mMeshes[0];
@@ -59,7 +54,6 @@ int main() {
         aiVector3D pos = mesh->mVertices[i];
         vertices.push_back(vec3(pos.x, pos.y, pos.z));
     }
-    
     
     // シェーダー読み込み
     GLuint programID = LoadShaders( "Red.vs", "Red.fs" );
