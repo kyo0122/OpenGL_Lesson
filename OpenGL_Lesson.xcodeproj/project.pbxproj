@@ -14,6 +14,9 @@
 		6C5F5ED21FB4BEBC00AA508F /* libassimp.4.0.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5F5ED11FB4BEBB00AA508F /* libassimp.4.0.1.dylib */; };
 		6C5F5ED61FB4BF6100AA508F /* Loader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C5F5ED41FB4BF6100AA508F /* Loader.cpp */; };
 		6C5F5ED91FB4C34D00AA508F /* monkey.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C5F5ED71FB4C15C00AA508F /* monkey.obj */; };
+		6CDD60AF1FB4E309002966F0 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CDD60AD1FB4E309002966F0 /* Camera.cpp */; };
+		6CDD60B21FB4E58C002966F0 /* Basic.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6CDD60B01FB4E39E002966F0 /* Basic.vs */; };
+		6CDD60B31FB4E58C002966F0 /* Basic.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6CDD60B11FB4E3A5002966F0 /* Basic.fs */; };
 		BA6A4F3A1FB34D8B00F79427 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA6A4F381FB34D8B00F79427 /* libGLEW.2.1.0.dylib */; };
 		BA6A4F3B1FB34D8B00F79427 /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA6A4F391FB34D8B00F79427 /* libglfw.3.2.dylib */; };
 		BAC5A32B1FB2F47E009D42AA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAC5A32A1FB2F47E009D42AA /* main.cpp */; };
@@ -27,6 +30,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				6CDD60B21FB4E58C002966F0 /* Basic.vs in CopyFiles */,
+				6CDD60B31FB4E58C002966F0 /* Basic.fs in CopyFiles */,
 				6C3AC79F1FB3923000411A73 /* Red.fs in CopyFiles */,
 				6C3AC7A01FB3923000411A73 /* Red.vs in CopyFiles */,
 				6C3AC7A21FB4B39000411A73 /* UVCheckerMap01-1024.png in CopyFiles */,
@@ -55,6 +60,10 @@
 		6C5F5ED71FB4C15C00AA508F /* monkey.obj */ = {isa = PBXFileReference; lastKnownFileType = text; path = monkey.obj; sourceTree = "<group>"; };
 		6CD13A5D1FB385E20024DF97 /* Red.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Red.fs; sourceTree = "<group>"; };
 		6CD13A5E1FB386190024DF97 /* Red.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Red.vs; sourceTree = "<group>"; };
+		6CDD60AD1FB4E309002966F0 /* Camera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
+		6CDD60AE1FB4E309002966F0 /* Camera.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Camera.hpp; sourceTree = "<group>"; };
+		6CDD60B01FB4E39E002966F0 /* Basic.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Basic.vs; sourceTree = "<group>"; };
+		6CDD60B11FB4E3A5002966F0 /* Basic.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Basic.fs; sourceTree = "<group>"; };
 		BA6A4F381FB34D8B00F79427 /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
 		BA6A4F391FB34D8B00F79427 /* libglfw.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.2.dylib; path = ../../../../../usr/local/Cellar/glfw/3.2.1/lib/libglfw.3.2.dylib; sourceTree = "<group>"; };
 		BAC5A3271FB2F47E009D42AA /* OpenGL_Lesson */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OpenGL_Lesson; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +90,8 @@
 		6C3AC79E1FB3921000411A73 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				6CDD60B01FB4E39E002966F0 /* Basic.vs */,
+				6CDD60B11FB4E3A5002966F0 /* Basic.fs */,
 				6CD13A5D1FB385E20024DF97 /* Red.fs */,
 				6CD13A5E1FB386190024DF97 /* Red.vs */,
 			);
@@ -137,9 +148,11 @@
 			children = (
 				6C5F5ED31FB4BEF700AA508F /* global.h */,
 				BAC5A32A1FB2F47E009D42AA /* main.cpp */,
+				6CDD60AD1FB4E309002966F0 /* Camera.cpp */,
+				6CDD60AE1FB4E309002966F0 /* Camera.hpp */,
 				6C5F5ED41FB4BF6100AA508F /* Loader.cpp */,
-				6C5F5ED81FB4C16600AA508F /* obj */,
 				6C5F5ED51FB4BF6100AA508F /* Loader.hpp */,
+				6C5F5ED81FB4C16600AA508F /* obj */,
 				6C3AC7A31FB4B39500411A73 /* Texture */,
 				6C3AC79E1FB3921000411A73 /* Shaders */,
 			);
@@ -204,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C5F5ED61FB4BF6100AA508F /* Loader.cpp in Sources */,
+				6CDD60AF1FB4E309002966F0 /* Camera.cpp in Sources */,
 				BAC5A32B1FB2F47E009D42AA /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
