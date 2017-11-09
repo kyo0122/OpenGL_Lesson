@@ -10,6 +10,7 @@
 		6C3AC79F1FB3923000411A73 /* Red.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6CD13A5D1FB385E20024DF97 /* Red.fs */; };
 		6C3AC7A01FB3923000411A73 /* Red.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6CD13A5E1FB386190024DF97 /* Red.vs */; };
 		6C3AC7A21FB4B39000411A73 /* UVCheckerMap01-1024.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C3AC7A11FB4B29D00411A73 /* UVCheckerMap01-1024.png */; };
+		6C5F5EBE1FB4B70A00AA508F /* libpng16.16.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5F5EBD1FB4B70A00AA508F /* libpng16.16.dylib */; };
 		BA6A4F3A1FB34D8B00F79427 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA6A4F381FB34D8B00F79427 /* libGLEW.2.1.0.dylib */; };
 		BA6A4F3B1FB34D8B00F79427 /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA6A4F391FB34D8B00F79427 /* libglfw.3.2.dylib */; };
 		BAC5A32B1FB2F47E009D42AA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAC5A32A1FB2F47E009D42AA /* main.cpp */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		6C3AC7A11FB4B29D00411A73 /* UVCheckerMap01-1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UVCheckerMap01-1024.png"; sourceTree = "<group>"; };
+		6C5F5EBD1FB4B70A00AA508F /* libpng16.16.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpng16.16.dylib; path = ../../../../../usr/local/Cellar/libpng/1.6.34/lib/libpng16.16.dylib; sourceTree = "<group>"; };
 		6CD13A5D1FB385E20024DF97 /* Red.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Red.fs; sourceTree = "<group>"; };
 		6CD13A5E1FB386190024DF97 /* Red.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Red.vs; sourceTree = "<group>"; };
 		BA6A4F381FB34D8B00F79427 /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C5F5EBE1FB4B70A00AA508F /* libpng16.16.dylib in Frameworks */,
 				BA6A4F3A1FB34D8B00F79427 /* libGLEW.2.1.0.dylib in Frameworks */,
 				BA6A4F3B1FB34D8B00F79427 /* libglfw.3.2.dylib in Frameworks */,
 				BAC5A3321FB2F4CC009D42AA /* OpenGL.framework in Frameworks */,
@@ -82,6 +85,14 @@
 			name = Texture;
 			sourceTree = "<group>";
 		};
+		6C5F5EBC1FB4B70A00AA508F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6C5F5EBD1FB4B70A00AA508F /* libpng16.16.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BAC5A31E1FB2F47E009D42AA = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +101,7 @@
 				BAC5A3311FB2F4CC009D42AA /* OpenGL.framework */,
 				BAC5A3291FB2F47E009D42AA /* OpenGL_Lesson */,
 				BAC5A3281FB2F47E009D42AA /* Products */,
+				6C5F5EBC1FB4B70A00AA508F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -264,6 +276,7 @@
 					/usr/local/lib,
 					/usr/local/Cellar/glew/2.1.0/lib,
 					/usr/local/Cellar/glfw/3.2.1/lib,
+					/usr/local/Cellar/libpng/1.6.34/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -277,6 +290,7 @@
 					/usr/local/lib,
 					/usr/local/Cellar/glew/2.1.0/lib,
 					/usr/local/Cellar/glfw/3.2.1/lib,
+					/usr/local/Cellar/libpng/1.6.34/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
