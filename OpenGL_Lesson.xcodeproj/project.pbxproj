@@ -10,6 +10,7 @@
 		6C3AC79F1FB3923000411A73 /* Red.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6CD13A5D1FB385E20024DF97 /* Red.fs */; };
 		6C3AC7A01FB3923000411A73 /* Red.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6CD13A5E1FB386190024DF97 /* Red.vs */; };
 		6C3AC7A21FB4B39000411A73 /* UVCheckerMap01-1024.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C3AC7A11FB4B29D00411A73 /* UVCheckerMap01-1024.png */; };
+		6C5D010D1FBDD00C00D8300A /* sphere.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C5D010C1FBDD00600D8300A /* sphere.obj */; };
 		6C5F5EBE1FB4B70A00AA508F /* libpng16.16.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5F5EBD1FB4B70A00AA508F /* libpng16.16.dylib */; };
 		6C5F5ED21FB4BEBC00AA508F /* libassimp.4.0.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5F5ED11FB4BEBB00AA508F /* libassimp.4.0.1.dylib */; };
 		6C5F5ED61FB4BF6100AA508F /* Loader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C5F5ED41FB4BF6100AA508F /* Loader.cpp */; };
@@ -38,6 +39,7 @@
 				6C3AC7A01FB3923000411A73 /* Red.vs in CopyFiles */,
 				6C3AC7A21FB4B39000411A73 /* UVCheckerMap01-1024.png in CopyFiles */,
 				6C5F5ED91FB4C34D00AA508F /* monkey.obj in CopyFiles */,
+				6C5D010D1FBDD00C00D8300A /* sphere.obj in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		6C3AC7A11FB4B29D00411A73 /* UVCheckerMap01-1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UVCheckerMap01-1024.png"; sourceTree = "<group>"; };
+		6C5D010C1FBDD00600D8300A /* sphere.obj */ = {isa = PBXFileReference; lastKnownFileType = text; path = sphere.obj; sourceTree = "<group>"; };
 		6C5F5EBD1FB4B70A00AA508F /* libpng16.16.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpng16.16.dylib; path = ../../../../../usr/local/Cellar/libpng/1.6.34/lib/libpng16.16.dylib; sourceTree = "<group>"; };
 		6C5F5ED11FB4BEBB00AA508F /* libassimp.4.0.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.4.0.1.dylib; path = ../../../../../usr/local/Cellar/assimp/4.0.1/lib/libassimp.4.0.1.dylib; sourceTree = "<group>"; };
 		6C5F5ED31FB4BEF700AA508F /* global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = global.h; sourceTree = "<group>"; };
@@ -124,6 +127,7 @@
 		6C5F5ED81FB4C16600AA508F /* obj */ = {
 			isa = PBXGroup;
 			children = (
+				6C5D010C1FBDD00600D8300A /* sphere.obj */,
 				6C5F5ED71FB4C15C00AA508F /* monkey.obj */,
 			);
 			name = obj;
