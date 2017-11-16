@@ -38,8 +38,8 @@ int main() {
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     
     ModelObject monkey("monkey.obj", "Basic");
-    monkey.SetPosition(vec3(-3, -2, -1));
     
+    // 弾リスト
     vector<Bullet> bullets;
 
     Camera cam(vec3(0, 0, 2), window);
@@ -57,14 +57,12 @@ int main() {
             bullets.push_back(b);
         }
         
-        for(auto bullet : bullets)
+        // 弾の更新
+        for(int i = 0;i<bullets.size();i++)
         {
-            bullet.Update();
-            bullet.Rendering(cam);
+            bullets[i].Update();
+            bullets[i].Rendering(cam);
         }
-        
-        auto pos = monkey.GetPosition();
-        monkey.SetPosition(vec3(pos.x+.1, pos.z+.1, pos.z+.1));
         
         monkey.Rendering(cam);
          
