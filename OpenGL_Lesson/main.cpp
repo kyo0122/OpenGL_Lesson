@@ -37,6 +37,9 @@ int main() {
     
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     
+    // 深度を使うための宣言(デフォルトでは、あらゆる機能がオフ)
+    glEnable(GL_DEPTH_TEST);
+    
     ModelObject monkey("monkey.obj", "Basic");
     
     // 弾リスト
@@ -46,7 +49,8 @@ int main() {
     
     while (!glfwWindowShouldClose(window)&&glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS)
     {
-        glClear(GL_COLOR_BUFFER_BIT);
+        // GL_DEPTH_BUFFER_BITで深度情報のクリア
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
         cam.controller(window);
         
