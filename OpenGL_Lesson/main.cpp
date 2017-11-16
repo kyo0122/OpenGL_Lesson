@@ -9,6 +9,7 @@
 #include "global.h"
 #include "Loader.hpp"
 #include "Camera.hpp"
+#include "ModelObject.hpp"
 
 // glfwWindowHintをまとめた処理です
 void initWindowHints();
@@ -34,27 +35,11 @@ int main() {
         return -1;
     }
     
-    // 入力周りの設定です。今回はカーソルを非表示にしています。
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     
-    mat4 modelMatrix = mat4();  // MVPはGLUTでも扱っていたので、あまり触れません。
-    vector<vec3> vertices;
-    LoadMesh("monkey.obj", &vertices);
-    
-    // シェーダー読み込み
-    GLuint programID = LoadShaders( "Basic.vs", "Basic.fs" );
-    GLuint matrixID = glGetUniformLocation(programID, "MVP");   // シェーダー参照
-    
-    GLuint vertexArray;
-    glGenVertexArrays(1, &vertexArray);
-    glBindVertexArray(vertexArray);
-    
-    GLuint vertexBuffer;
-    glGenBuffers(1, &vertexBuffer);
-    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-    glBufferData(GL_ARRAY_BUFFER, vertices.size()*sizeof(vec3), &vertices[0], GL_STATIC_DRAW);
-    
-    // 自前のカメラクラスです。位置とカメラが担当するウィンドウを指定します。
+    // オブジェクトの処理を一つにまとめたクラスを用意しました
+    ModelObject monkey("monkey.obj", "Basic");
+
     Camera cam(vec3(0, 0, 2), window);
     
     while (!glfwWindowShouldClose(window)&&glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS)
@@ -64,19 +49,9 @@ int main() {
         // カメラの移動制御
         cam.controller(window);
         
-        glUseProgram(programID);
-        
-        // MVPを計算して、シェーダーに渡しています。
-        auto MVP = cam.getProjection() * cam.getView() * modelMatrix;
-        glUniformMatrix4fv(matrixID, 1, GL_FALSE, &MVP[0][0]);
-        
-        glEnableVertexAttribArray(0);
-        glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
-        
-        glDrawArrays(GL_TRIANGLES, 0, (int)(vertices.size()));
-        glDisableVertexAttribArray(0);
-        
+        // オブジェクトの描画処理
+        monkey.Rendering(cam);
+         
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
