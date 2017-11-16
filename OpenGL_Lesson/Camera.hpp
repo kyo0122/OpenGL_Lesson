@@ -26,7 +26,7 @@ private:
     float vertical_angle   = 0.0;
     float speed            = 3.0;       // 移動速度
     float mouse_speed      = 0.001;     // マウスに対する速度
-    
+    vec3 direction;                     // カメラの方向
     
     float current_time;
     float last_time = NULL;
@@ -36,9 +36,10 @@ public:
     Camera(vec3 position, GLFWwindow *window);  // 初期位置と扱うウィンドウ
     void controller(GLFWwindow *window);    // 入力を受け付けるウィンドウ
     
-    mat4 getProjection();
-    mat4 getView();
-    vec3 getPosition();
+    mat4 GetProjection();
+    mat4 GetView();
+    vec3 GetPosition();
+    vec3 GetDirection();
 };
 
 #endif /* Camera_hpp */

@@ -2,7 +2,6 @@
 
 layout(location = 0) in vec3 vertexPosition_modelspace;
 
-// ユニフォーム変数。頂点全てが共有する値。
 uniform mat4 MVP;
 
 void main(){

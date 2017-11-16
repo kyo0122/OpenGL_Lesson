@@ -40,7 +40,7 @@ void Camera::controller(GLFWwindow *window)
     vertical_angle += mouse_speed * (last_ypos - ypos);
     
     // カメラの向き(Z)と右(X)を求めて、上(Y)を計算しています。
-    vec3 direction = vec3(cos(vertical_angle) * sin(horizontal_angle),
+    direction = vec3(cos(vertical_angle) * sin(horizontal_angle),
                           sin(vertical_angle),
                           cos(vertical_angle) * cos(horizontal_angle)
                           );
@@ -90,6 +90,7 @@ void Camera::controller(GLFWwindow *window)
     last_time = current_time;
 }
 
-mat4 Camera::getProjection(){return projection;};
-mat4 Camera::getView(){return view;};
-vec3 Camera::getPosition(){return pos;};
+mat4 Camera::GetProjection(){return projection;}
+mat4 Camera::GetView(){return view;}
+vec3 Camera::GetPosition(){return pos;}
+vec3 Camera::GetDirection(){return direction;}

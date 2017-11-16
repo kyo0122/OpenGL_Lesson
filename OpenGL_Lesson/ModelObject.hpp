@@ -15,7 +15,8 @@
 
 class ModelObject
 {
-    mat4 modelMatrix = mat4();
+protected:
+    mat4 modelMatrix;
     vector<vec3> vertices;
     
     GLuint programID;

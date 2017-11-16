@@ -33,14 +33,14 @@ void ModelObject::SetPosition(vec3 position)
 
 vec3 ModelObject::GetPosition()
 {
-    return vec3(modelMatrix[0][0], modelMatrix[1][1], modelMatrix[2][2]);
+    return vec3(modelMatrix[3][0], modelMatrix[3][1], modelMatrix[3][2]);
 }
 
 void ModelObject::Rendering(Camera camera)
 {
     glUseProgram(programID);
     
-    auto MVP = camera.getProjection() * camera.getView() * modelMatrix;
+    auto MVP = camera.GetProjection() * camera.GetView() * modelMatrix;
     glUniformMatrix4fv(matrixID, 1, GL_FALSE, &MVP[0][0]);
     
     glEnableVertexAttribArray(0);

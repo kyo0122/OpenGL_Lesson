@@ -9,6 +9,17 @@
 #ifndef Bullet_hpp
 #define Bullet_hpp
 
-#include <stdio.h>
+#include "ModelObject.hpp"
+#include "global.h"
+
+class Bullet : public ModelObject
+{
+    vec3 direction;
+    
+public:
+    
+    Bullet(vec3 direction);
+    void Update();
+};
 
 #endif /* Bullet_hpp */

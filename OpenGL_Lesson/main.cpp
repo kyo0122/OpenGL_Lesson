@@ -10,8 +10,8 @@
 #include "Loader.hpp"
 #include "Camera.hpp"
 #include "ModelObject.hpp"
+#include "Bullet.hpp"
 
-// glfwWindowHintをまとめた処理です
 void initWindowHints();
 
 int main() {
@@ -22,7 +22,7 @@ int main() {
     
     initWindowHints();
     
-    GLFWwindow* window = glfwCreateWindow(640, 480, "🐵", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(640, 480, "==🔴", NULL, NULL);
     if (!window){
         glfwTerminate();
         return -1;
@@ -37,8 +37,10 @@ int main() {
     
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     
-    // オブジェクトの処理を一つにまとめたクラスを用意しました
     ModelObject monkey("monkey.obj", "Basic");
+    monkey.SetPosition(vec3(-3, -2, -1));
+    
+    vector<Bullet> bullets;
 
     Camera cam(vec3(0, 0, 2), window);
     
@@ -46,10 +48,24 @@ int main() {
     {
         glClear(GL_COLOR_BUFFER_BIT);
         
-        // カメラの移動制御
         cam.controller(window);
         
-        // オブジェクトの描画処理
+        // 射出ボタン
+        if (glfwGetKey(window, GLFW_KEY_SPACE)==GLFW_PRESS) {
+            Bullet b(cam.GetDirection());
+            b.SetPosition(cam.GetPosition());
+            bullets.push_back(b);
+        }
+        
+        for(auto bullet : bullets)
+        {
+            bullet.Update();
+            bullet.Rendering(cam);
+        }
+        
+        auto pos = monkey.GetPosition();
+        monkey.SetPosition(vec3(pos.x+.1, pos.z+.1, pos.z+.1));
+        
         monkey.Rendering(cam);
          
         glfwSwapBuffers(window);
