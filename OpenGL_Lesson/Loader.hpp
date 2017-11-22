@@ -26,4 +26,7 @@ void CheckShaderProgram(GLuint id, GLint result, int* InfoLogLength);
 // メッシュを読み込む関数です
 void LoadMesh(const char* path, vector<vec3>* vertices);
 
+// ノーマルを読み込む関数です
+void LoadNormal(const char* path, vector<vec3>* normals);
+
 #endif /* Loader_hpp */

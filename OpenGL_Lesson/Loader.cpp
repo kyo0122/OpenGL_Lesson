@@ -101,4 +101,18 @@ void LoadMesh(const char* path, vector<vec3>* vertices)
     }
 }
 
+void LoadNormal(const char* path, vector<vec3>* normals)
+{
+    Assimp::Importer importer;  // 3Dファイルの読み込みに使う変数です。ファイルの情報を格納します。
+    
+    // 3Dファイルが、シーン/メッシュ(場合によっては複数のメッシュ)という構造になっているので、
+    // sceneを取得し、そこからメッシュの情報にアクセスしています。
+    const aiScene* scene = importer.ReadFile(path, 0);
+    const aiMesh* mesh = scene->mMeshes[0];
+    
+    for(int i=0; i < mesh->mNumVertices; i++){
+        aiVector3D pos = mesh->mNormals[i];
+        normals->push_back(vec3(pos.x, pos.y, pos.z));
+    }
+}
 
