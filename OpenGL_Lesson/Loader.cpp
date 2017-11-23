@@ -86,19 +86,79 @@ GLuint LoadShaders(const char* vertex_file_path,const char* fragment_file_path)
 }
 
 
-void LoadMesh(const char* path, vector<vec3>* vertices)
+void LoadModel(const char* path,
+               vector<unsigned short> *indices,
+               vector<vec3> *vertices,
+               vector<vec2> *uvs,
+               vector<vec3> *normals)
 {
-    Assimp::Importer importer;  // 3Dファイルの読み込みに使う変数です。ファイルの情報を格納します。
-    
-    // 3Dファイルが、シーン/メッシュ(場合によっては複数のメッシュ)という構造になっているので、
-    // sceneを取得し、そこからメッシュの情報にアクセスしています。
+    Assimp::Importer importer;
     const aiScene* scene = importer.ReadFile(path, 0);
     const aiMesh* mesh = scene->mMeshes[0];
     
+    // 頂点
     for(int i=0; i < mesh->mNumVertices; i++){
         aiVector3D pos = mesh->mVertices[i];
         vertices->push_back(vec3(pos.x, pos.y, pos.z));
     }
+    // ノーマル
+    for(int i=0; i<mesh->mNumVertices; i++){
+        aiVector3D n = mesh->mNormals[i];
+        normals->push_back(vec3(n.x, n.y, n.z));
+    }
+    
+    // UV
+    uvs->reserve(mesh->mNumVertices);
+    for(int i=0; i<mesh->mNumVertices; i++){
+        aiVector3D UVW = mesh->mTextureCoords[0][i];
+        uvs->push_back(vec2(UVW.x, UVW.y));
+    }
+    
+    // index
+    for (int i=0; i<mesh->mNumFaces; i++){
+        indices->push_back(mesh->mFaces[i].mIndices[0]);
+        indices->push_back(mesh->mFaces[i].mIndices[1]);
+        indices->push_back(mesh->mFaces[i].mIndices[2]);
+    }
 }
 
+// テクスチャを読み込みます(現状PNGのみ)
+GLuint LoadTexture(const char* filePath)
+{
+    GLuint textureID;
+    
+    png_structp sp = png_create_read_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL);
+    png_infop ip = png_create_info_struct(sp);
+    FILE* fp = fopen(filePath, "rb");
+    int width, height;
+    int depth, colortype, interlacetype;
+    GLubyte *data;
+    
+    png_init_io(sp, fp);
+    png_read_info(sp, ip);
+    png_get_IHDR(sp, ip, (png_uint_32*)&width, (png_uint_32*)&height, &depth, &colortype, &interlacetype, NULL, NULL);
+    
+    png_size_t rb = png_get_rowbytes(sp, ip);
+    
+    data = new GLubyte[height * rb];
+    GLubyte **recv = new GLubyte*[height];
+    for (int i = 0; i < height; i++)
+    recv[i] = &data[i * rb];
+    png_read_image(sp, recv);
+    png_read_end(sp, ip);
+    png_destroy_read_struct(&sp, &ip, NULL);
+    fclose(fp);
+    delete[] recv;
+    
+    glGenTextures(1, &textureID);
+    glBindTexture(GL_TEXTURE_2D, textureID);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_BGR_EXT, GL_UNSIGNED_BYTE, data);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glGenerateMipmap(GL_TEXTURE_2D);
+    
+    return textureID;
+}
 

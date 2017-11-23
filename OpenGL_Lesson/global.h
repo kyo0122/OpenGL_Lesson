@@ -29,6 +29,8 @@ using namespace glm;
 #include <assimp/postprocess.h>
 #include <assimp/scene.h>
 
+#include <libpng16/png.h>
+
 #pragma clang pop
 
 #endif /* global_h */

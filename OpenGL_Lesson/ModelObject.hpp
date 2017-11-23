@@ -17,15 +17,30 @@ class ModelObject
 {
 protected:
     mat4 modelMatrix;
+    
+    vector<unsigned short> indices;
     vector<vec3> vertices;
+    vector<vec2> uvs;
+    vector<vec3> normals;
+    GLuint texture;
     
     GLuint programID;
-    GLuint matrixID;
+    GLuint textureID;
+    GLuint lightID;
+    GLuint modelMatrixID;
+    GLuint viewMatrixID;
+    GLuint projectionMatrixID;
+    
     GLuint vertexArray;
+    GLuint elementBuffer;
     GLuint vertexBuffer;
+    GLuint uvBuffer;
+    GLuint normalBuffer;
     
 public:
     ModelObject(string objName, string shaderName);
+    
+    void SetTexture(const char* path);
     
     void SetPosition(vec3 position);
     vec3 GetPosition();

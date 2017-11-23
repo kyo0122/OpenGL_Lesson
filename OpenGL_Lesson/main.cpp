@@ -22,7 +22,7 @@ int main() {
     
     initWindowHints();
     
-    GLFWwindow* window = glfwCreateWindow(640, 480, "==🔴", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(640, 480, "🐵", NULL, NULL);
     if (!window){
         glfwTerminate();
         return -1;
@@ -41,9 +41,7 @@ int main() {
     glEnable(GL_DEPTH_TEST);
     
     ModelObject monkey("monkey.obj", "Basic");
-    
-    // 弾リスト
-    vector<Bullet> bullets;
+    monkey.SetTexture("UVCheckerMap01-1024.png");
 
     Camera cam(vec3(0, 0, 2), window);
     
@@ -53,20 +51,6 @@ int main() {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
         cam.controller(window);
-        
-        // 射出ボタン
-        if (glfwGetKey(window, GLFW_KEY_SPACE)==GLFW_PRESS) {
-            Bullet b(cam.GetDirection());
-            b.SetPosition(cam.GetPosition());
-            bullets.push_back(b);
-        }
-        
-        // 弾の更新
-        for(int i = 0;i<bullets.size();i++)
-        {
-            bullets[i].Update();
-            bullets[i].Rendering(cam);
-        }
         
         monkey.Rendering(cam);
          

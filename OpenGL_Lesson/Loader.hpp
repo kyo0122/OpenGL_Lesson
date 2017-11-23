@@ -24,6 +24,13 @@ void CompileShader(GLuint id, string* code);
 void CheckShaderProgram(GLuint id, GLint result, int* InfoLogLength);
 
 // メッシュを読み込む関数です
-void LoadMesh(const char* path, vector<vec3>* vertices);
+void LoadModel(const char* path,
+               vector<unsigned short> *indices,
+               vector<vec3> *vertices,
+               vector<vec2> *uvs,
+               vector<vec3> *normals);
+
+// テクスチャを読み込む関数です
+GLuint LoadTexture(const char* filePath);
 
 #endif /* Loader_hpp */
