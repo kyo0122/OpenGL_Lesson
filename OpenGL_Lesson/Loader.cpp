@@ -125,8 +125,8 @@ void LoadModel(const char* path,
 // テクスチャを読み込みます(現状PNGのみ)
 GLuint LoadTexture(const char* filePath)
 {
-    GLuint textureID;
-    
+    // 指定パスの画像から縦横のサイズを取得し、
+    // 色のデータをdataに保存して…
     png_structp sp = png_create_read_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL);
     png_infop ip = png_create_info_struct(sp);
     FILE* fp = fopen(filePath, "rb");
@@ -142,14 +142,17 @@ GLuint LoadTexture(const char* filePath)
     
     data = new GLubyte[height * rb];
     GLubyte **recv = new GLubyte*[height];
-    for (int i = 0; i < height; i++)
-    recv[i] = &data[i * rb];
+    for (int i = 0; i < height; i++){
+        recv[i] = &data[i * rb];
+    }
     png_read_image(sp, recv);
     png_read_end(sp, ip);
     png_destroy_read_struct(&sp, &ip, NULL);
     fclose(fp);
     delete[] recv;
     
+    // テクスチャを生成し、そこにデータを渡しています
+    GLuint textureID;
     glGenTextures(1, &textureID);
     glBindTexture(GL_TEXTURE_2D, textureID);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_BGR_EXT, GL_UNSIGNED_BYTE, data);
