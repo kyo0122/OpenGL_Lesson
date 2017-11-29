@@ -22,7 +22,7 @@ int main() {
     
     initWindowHints();
     
-    GLFWwindow* window = glfwCreateWindow(640, 480, "🐵", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(640, 480, "☀️☁️", NULL, NULL);
     if (!window){
         glfwTerminate();
         return -1;
@@ -40,10 +40,11 @@ int main() {
     // 深度を使うための宣言(デフォルトでは、あらゆる機能がオフ)
     glEnable(GL_DEPTH_TEST);
     
-    ModelObject monkey("monkey.obj", "Basic");
-    monkey.SetTexture("UVCheckerMap01-1024.png");
+    ModelObject skybox("skybox.obj", "Basic");
+//    monkey.SetTexture("winter-2383930_1280.png");
+    skybox.SetTexture("UVCheckerMap01-1024.png");
 
-    Camera cam(vec3(0, 0, 2), window);
+    Camera cam(vec3(0, 0, 0), window);
     
     while (!glfwWindowShouldClose(window)&&glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS)
     {
@@ -52,7 +53,8 @@ int main() {
         
         cam.controller(window);
         
-        monkey.Rendering(cam);
+        skybox.SetPosition(cam.GetPosition());
+        skybox.Rendering(cam);
          
         glfwSwapBuffers(window);
         glfwPollEvents();
