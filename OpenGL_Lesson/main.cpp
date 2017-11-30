@@ -40,10 +40,12 @@ int main() {
     // 深度を使うための宣言(デフォルトでは、あらゆる機能がオフ)
     glEnable(GL_DEPTH_TEST);
     
-    ModelObject skybox("skybox.obj", "Basic");
+    ModelObject skybox("skybox.obj", "Skybox");
 //    monkey.SetTexture("winter-2383930_1280.png");
-    skybox.SetTexture("UVCheckerMap01-1024.png");
-
+    skybox.SetTexture("winter-2383930_1280.png");
+    
+    skybox.scale = vec3(10, 10, 10);
+    
     Camera cam(vec3(0, 0, 0), window);
     
     while (!glfwWindowShouldClose(window)&&glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS)
@@ -53,7 +55,8 @@ int main() {
         
         cam.controller(window);
         
-        skybox.SetPosition(cam.GetPosition());
+//        skybox.SetPosition(cam.GetPosition());
+//        skybox.position=cam.GetPosition();
         skybox.Rendering(cam);
          
         glfwSwapBuffers(window);

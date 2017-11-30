@@ -15,7 +15,8 @@ Bullet::Bullet(vec3 direction):ModelObject("sphere.obj", "Red")
 
 void Bullet::Update()
 {
-    auto pos = GetPosition();
-    pos+=direction;
-    SetPosition(pos);
+//    auto pos = GetPosition();
+//    pos+=direction;
+//    SetPosition(pos);
+    position += direction;
 }

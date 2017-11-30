@@ -49,20 +49,25 @@ void ModelObject::SetTexture(const char* path)
     texture = LoadTexture(path);
 }
 
-void ModelObject::SetPosition(vec3 position)
-{
-    modelMatrix = translate(mat4(), position);
-}
-
-vec3 ModelObject::GetPosition()
-{
-    return vec3(modelMatrix[3][0], modelMatrix[3][1], modelMatrix[3][2]);
-}
+//void ModelObject::SetPosition(vec3 position)
+//{
+//    modelMatrix = translate(mat4(), position);
+//}
+//
+//vec3 ModelObject::GetPosition()
+//{
+//    return vec3(modelMatrix[3][0], modelMatrix[3][1], modelMatrix[3][2]);
+//}
 
 void ModelObject::Rendering(Camera camera)
 {
     glUseProgram(programID);
     
+    quat quaternion = quat(rotation);
+    mat4 rotationMatrix = toMat4(quaternion);
+    
+    
+    modelMatrix = translate(mat4(), position)*rotationMatrix*glm::scale(mat4(), scale);
     glUniformMatrix4fv(modelMatrixID, 1, GL_FALSE, &modelMatrix[0][0]);
     glUniformMatrix4fv(viewMatrixID, 1, GL_FALSE, &camera.GetView()[0][0]);
     glUniformMatrix4fv(projectionMatrixID, 1, GL_FALSE, &camera.GetProjection()[0][0]);
