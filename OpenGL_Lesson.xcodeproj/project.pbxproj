@@ -15,6 +15,7 @@
 		6C3ED0CF1FD06F0500710239 /* imgui_impl_glfw_gl3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C3ED0CC1FD06ED500710239 /* imgui_impl_glfw_gl3.cpp */; };
 		6C3ED0D21FD06F4A00710239 /* imgui_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C3ED0D11FD06F4A00710239 /* imgui_draw.cpp */; };
 		6C3ED0FB1FD0769E00710239 /* imgui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C3ED0CE1FD06EE900710239 /* imgui.cpp */; };
+		6C3ED1021FD07E9900710239 /* sawarabi-gothic-medium.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C3ED1001FD07E8000710239 /* sawarabi-gothic-medium.ttf */; };
 		6C5D010D1FBDD00C00D8300A /* sphere.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C5D010C1FBDD00600D8300A /* sphere.obj */; };
 		6C5F5EBE1FB4B70A00AA508F /* libpng16.16.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5F5EBD1FB4B70A00AA508F /* libpng16.16.dylib */; };
 		6C5F5ED21FB4BEBC00AA508F /* libassimp.4.0.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5F5ED11FB4BEBB00AA508F /* libassimp.4.0.1.dylib */; };
@@ -40,6 +41,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				6C3ED1021FD07E9900710239 /* sawarabi-gothic-medium.ttf in CopyFiles */,
 				6C3ED0AF1FCFF58200710239 /* Skybox.vs in CopyFiles */,
 				6C3ED0B01FCFF58200710239 /* Skybox.fs in CopyFiles */,
 				6CDD60B21FB4E58C002966F0 /* Basic.vs in CopyFiles */,
@@ -81,6 +83,8 @@
 		6C3ED0D61FD06FDE00710239 /* stb_truetype.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_truetype.h; sourceTree = "<group>"; };
 		6C3ED0FC1FD0771500710239 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		6C3ED0FD1FD0772800710239 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		6C3ED0FF1FD07E8000710239 /* README_ja.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README_ja.txt; sourceTree = "<group>"; };
+		6C3ED1001FD07E8000710239 /* sawarabi-gothic-medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sawarabi-gothic-medium.ttf"; sourceTree = "<group>"; };
 		6C5D010C1FBDD00600D8300A /* sphere.obj */ = {isa = PBXFileReference; lastKnownFileType = text; path = sphere.obj; sourceTree = "<group>"; };
 		6C5F5EBD1FB4B70A00AA508F /* libpng16.16.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpng16.16.dylib; path = ../../../../../usr/local/Cellar/libpng/1.6.34/lib/libpng16.16.dylib; sourceTree = "<group>"; };
 		6C5F5ED11FB4BEBB00AA508F /* libassimp.4.0.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.4.0.1.dylib; path = ../../../../../usr/local/Cellar/assimp/4.0.1/lib/libassimp.4.0.1.dylib; sourceTree = "<group>"; };
@@ -164,6 +168,23 @@
 			name = imgui;
 			sourceTree = "<group>";
 		};
+		6C3ED0FE1FD07E6800710239 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				6C3ED1011FD07E8600710239 /* sawarabi */,
+			);
+			name = fonts;
+			sourceTree = "<group>";
+		};
+		6C3ED1011FD07E8600710239 /* sawarabi */ = {
+			isa = PBXGroup;
+			children = (
+				6C3ED0FF1FD07E8000710239 /* README_ja.txt */,
+				6C3ED1001FD07E8000710239 /* sawarabi-gothic-medium.ttf */,
+			);
+			name = sawarabi;
+			sourceTree = "<group>";
+		};
 		6C5F5EBC1FB4B70A00AA508F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +227,7 @@
 		BAC5A3291FB2F47E009D42AA /* OpenGL_Lesson */ = {
 			isa = PBXGroup;
 			children = (
+				6C3ED0FE1FD07E6800710239 /* fonts */,
 				6C3ED0BD1FD0627500710239 /* imgui */,
 				6C5F5ED31FB4BEF700AA508F /* global.h */,
 				BAC5A32A1FB2F47E009D42AA /* main.cpp */,
