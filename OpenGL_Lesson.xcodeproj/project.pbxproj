@@ -12,6 +12,9 @@
 		6C3AC7A21FB4B39000411A73 /* UVCheckerMap01-1024.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C3AC7A11FB4B29D00411A73 /* UVCheckerMap01-1024.png */; };
 		6C3ED0AF1FCFF58200710239 /* Skybox.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C3ED0AD1FCFF4F000710239 /* Skybox.vs */; };
 		6C3ED0B01FCFF58200710239 /* Skybox.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C3ED0AE1FCFF4FC00710239 /* Skybox.fs */; };
+		6C3ED0CF1FD06F0500710239 /* imgui_impl_glfw_gl3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C3ED0CC1FD06ED500710239 /* imgui_impl_glfw_gl3.cpp */; };
+		6C3ED0D21FD06F4A00710239 /* imgui_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C3ED0D11FD06F4A00710239 /* imgui_draw.cpp */; };
+		6C3ED0FB1FD0769E00710239 /* imgui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C3ED0CE1FD06EE900710239 /* imgui.cpp */; };
 		6C5D010D1FBDD00C00D8300A /* sphere.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C5D010C1FBDD00600D8300A /* sphere.obj */; };
 		6C5F5EBE1FB4B70A00AA508F /* libpng16.16.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5F5EBD1FB4B70A00AA508F /* libpng16.16.dylib */; };
 		6C5F5ED21FB4BEBC00AA508F /* libassimp.4.0.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5F5ED11FB4BEBB00AA508F /* libassimp.4.0.1.dylib */; };
@@ -66,6 +69,18 @@
 		6C3AC7A11FB4B29D00411A73 /* UVCheckerMap01-1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UVCheckerMap01-1024.png"; sourceTree = "<group>"; };
 		6C3ED0AD1FCFF4F000710239 /* Skybox.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Skybox.vs; sourceTree = "<group>"; };
 		6C3ED0AE1FCFF4FC00710239 /* Skybox.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Skybox.fs; sourceTree = "<group>"; };
+		6C3ED0CB1FD06ED500710239 /* imgui_impl_glfw_gl3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = imgui_impl_glfw_gl3.h; sourceTree = "<group>"; };
+		6C3ED0CC1FD06ED500710239 /* imgui_impl_glfw_gl3.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_impl_glfw_gl3.cpp; sourceTree = "<group>"; };
+		6C3ED0CD1FD06EE100710239 /* imgui.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = imgui.h; sourceTree = "<group>"; };
+		6C3ED0CE1FD06EE900710239 /* imgui.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = imgui.cpp; sourceTree = "<group>"; };
+		6C3ED0D01FD06F2E00710239 /* imconfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = imconfig.h; sourceTree = "<group>"; };
+		6C3ED0D11FD06F4A00710239 /* imgui_draw.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_draw.cpp; sourceTree = "<group>"; };
+		6C3ED0D31FD06F6A00710239 /* imgui_internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = imgui_internal.h; sourceTree = "<group>"; };
+		6C3ED0D41FD06F8900710239 /* stb_textedit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_textedit.h; sourceTree = "<group>"; };
+		6C3ED0D51FD06F9400710239 /* stb_rect_pack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_rect_pack.h; sourceTree = "<group>"; };
+		6C3ED0D61FD06FDE00710239 /* stb_truetype.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_truetype.h; sourceTree = "<group>"; };
+		6C3ED0FC1FD0771500710239 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		6C3ED0FD1FD0772800710239 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6C5D010C1FBDD00600D8300A /* sphere.obj */ = {isa = PBXFileReference; lastKnownFileType = text; path = sphere.obj; sourceTree = "<group>"; };
 		6C5F5EBD1FB4B70A00AA508F /* libpng16.16.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpng16.16.dylib; path = ../../../../../usr/local/Cellar/libpng/1.6.34/lib/libpng16.16.dylib; sourceTree = "<group>"; };
 		6C5F5ED11FB4BEBB00AA508F /* libassimp.4.0.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.4.0.1.dylib; path = ../../../../../usr/local/Cellar/assimp/4.0.1/lib/libassimp.4.0.1.dylib; sourceTree = "<group>"; };
@@ -130,6 +145,25 @@
 			name = Texture;
 			sourceTree = "<group>";
 		};
+		6C3ED0BD1FD0627500710239 /* imgui */ = {
+			isa = PBXGroup;
+			children = (
+				6C3ED0FD1FD0772800710239 /* README.md */,
+				6C3ED0FC1FD0771500710239 /* LICENSE.txt */,
+				6C3ED0D61FD06FDE00710239 /* stb_truetype.h */,
+				6C3ED0D51FD06F9400710239 /* stb_rect_pack.h */,
+				6C3ED0D41FD06F8900710239 /* stb_textedit.h */,
+				6C3ED0D31FD06F6A00710239 /* imgui_internal.h */,
+				6C3ED0D11FD06F4A00710239 /* imgui_draw.cpp */,
+				6C3ED0D01FD06F2E00710239 /* imconfig.h */,
+				6C3ED0CE1FD06EE900710239 /* imgui.cpp */,
+				6C3ED0CD1FD06EE100710239 /* imgui.h */,
+				6C3ED0CC1FD06ED500710239 /* imgui_impl_glfw_gl3.cpp */,
+				6C3ED0CB1FD06ED500710239 /* imgui_impl_glfw_gl3.h */,
+			);
+			name = imgui;
+			sourceTree = "<group>";
+		};
 		6C5F5EBC1FB4B70A00AA508F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +206,7 @@
 		BAC5A3291FB2F47E009D42AA /* OpenGL_Lesson */ = {
 			isa = PBXGroup;
 			children = (
+				6C3ED0BD1FD0627500710239 /* imgui */,
 				6C5F5ED31FB4BEF700AA508F /* global.h */,
 				BAC5A32A1FB2F47E009D42AA /* main.cpp */,
 				6C6293E01FBD856600198D4D /* ModelObject.cpp */,
@@ -247,8 +282,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CB964B21FBDCD7A00E63C2D /* Bullet.cpp in Sources */,
+				6C3ED0D21FD06F4A00710239 /* imgui_draw.cpp in Sources */,
 				6C6293E21FBD856600198D4D /* ModelObject.cpp in Sources */,
+				6C3ED0CF1FD06F0500710239 /* imgui_impl_glfw_gl3.cpp in Sources */,
 				6C5F5ED61FB4BF6100AA508F /* Loader.cpp in Sources */,
+				6C3ED0FB1FD0769E00710239 /* imgui.cpp in Sources */,
 				6CDD60AF1FB4E309002966F0 /* Camera.cpp in Sources */,
 				BAC5A32B1FB2F47E009D42AA /* main.cpp in Sources */,
 			);
