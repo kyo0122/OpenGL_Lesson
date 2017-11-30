@@ -9,6 +9,7 @@
     - [glm](https://www.opengl.org/sdk/libs/GLM/)
     - [assimp](http://assimp.org)
     - [libpng](http://libpng.org/pub/png/libpng.html)
+    - [ImGui](https://github.com/ocornut/imgui)
 
 Homebrewは、ターミナルを起動して  
 `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`  
