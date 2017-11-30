@@ -12,6 +12,11 @@
 #include "ModelObject.hpp"
 #include "Bullet.hpp"
 
+// glfwを使う場合は、以下の二つをインクルードします
+#include "imgui.h"
+#include "imgui_impl_glfw_gl3.h"
+
+
 void initWindowHints();
 
 int main() {
@@ -45,16 +50,40 @@ int main() {
     
     Camera cam(vec3(0, 0, 0), window);
     
+    // ImGuiの初期化処理です
+    // 二つ目の引数はコールバックを行うかどうかです。
+    // 詳しくはimgui_impl_glfw_gl3.cppのImGui_ImplGlfwGL3_Initを確認してください。
+    ImGui_ImplGlfwGL3_Init(window, false);
+    
     while (!glfwWindowShouldClose(window)&&glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS)
     {
         // GL_DEPTH_BUFFER_BITで深度情報のクリア
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
+        // フレーム毎にImGuiの入力等を準備する関数です
+        ImGui_ImplGlfwGL3_NewFrame();
+        
+        // ブロック内がGUIに関する処理です。
+        // OpenGLの説明範囲外なので、詳しい処理の説明は行いません。
+        // imgui.cppの最上部に説明が書かれているので、
+        // そちらを参照してください。
+        {
+            ImGui::Begin("TestWindow");
+            static float f = 0.0f;
+            ImGui::Text("Hello, world!");
+            ImGui::SliderFloat("float", &f, 0.0f, 1.0f);
+            ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+            ImGui::End();
+        }
+        
         cam.controller(window);
         
         skybox.position = cam.GetPosition();
         skybox.Rendering(cam);
-         
+        
+        // ImGuiは処理をまとめて実行します。
+        ImGui::Render();
+        
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
