@@ -10,12 +10,16 @@
 		6C3AC79F1FB3923000411A73 /* Red.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6CD13A5D1FB385E20024DF97 /* Red.fs */; };
 		6C3AC7A01FB3923000411A73 /* Red.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6CD13A5E1FB386190024DF97 /* Red.vs */; };
 		6C3AC7A21FB4B39000411A73 /* UVCheckerMap01-1024.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C3AC7A11FB4B29D00411A73 /* UVCheckerMap01-1024.png */; };
+		6C3ED0AF1FCFF58200710239 /* Skybox.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C3ED0AD1FCFF4F000710239 /* Skybox.vs */; };
+		6C3ED0B01FCFF58200710239 /* Skybox.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C3ED0AE1FCFF4FC00710239 /* Skybox.fs */; };
 		6C5D010D1FBDD00C00D8300A /* sphere.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C5D010C1FBDD00600D8300A /* sphere.obj */; };
 		6C5F5EBE1FB4B70A00AA508F /* libpng16.16.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5F5EBD1FB4B70A00AA508F /* libpng16.16.dylib */; };
 		6C5F5ED21FB4BEBC00AA508F /* libassimp.4.0.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5F5ED11FB4BEBB00AA508F /* libassimp.4.0.1.dylib */; };
 		6C5F5ED61FB4BF6100AA508F /* Loader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C5F5ED41FB4BF6100AA508F /* Loader.cpp */; };
 		6C5F5ED91FB4C34D00AA508F /* monkey.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C5F5ED71FB4C15C00AA508F /* monkey.obj */; };
 		6C6293E21FBD856600198D4D /* ModelObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C6293E01FBD856600198D4D /* ModelObject.cpp */; };
+		6C6CA9221FCF048A00FABE3B /* winter-2383930_1280.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C6CA9201FCF048100FABE3B /* winter-2383930_1280.png */; };
+		6C6CA9261FCF160E00FABE3B /* skybox.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C6CA9251FCF160C00FABE3B /* skybox.obj */; };
 		6CB964B21FBDCD7A00E63C2D /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CB964B01FBDCD7A00E63C2D /* Bullet.cpp */; };
 		6CDD60AF1FB4E309002966F0 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CDD60AD1FB4E309002966F0 /* Camera.cpp */; };
 		6CDD60B21FB4E58C002966F0 /* Basic.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6CDD60B01FB4E39E002966F0 /* Basic.vs */; };
@@ -33,6 +37,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				6C3ED0AF1FCFF58200710239 /* Skybox.vs in CopyFiles */,
+				6C3ED0B01FCFF58200710239 /* Skybox.fs in CopyFiles */,
 				6CDD60B21FB4E58C002966F0 /* Basic.vs in CopyFiles */,
 				6CDD60B31FB4E58C002966F0 /* Basic.fs in CopyFiles */,
 				6C3AC79F1FB3923000411A73 /* Red.fs in CopyFiles */,
@@ -40,6 +46,8 @@
 				6C3AC7A21FB4B39000411A73 /* UVCheckerMap01-1024.png in CopyFiles */,
 				6C5F5ED91FB4C34D00AA508F /* monkey.obj in CopyFiles */,
 				6C5D010D1FBDD00C00D8300A /* sphere.obj in CopyFiles */,
+				6C6CA9261FCF160E00FABE3B /* skybox.obj in CopyFiles */,
+				6C6CA9221FCF048A00FABE3B /* winter-2383930_1280.png in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +64,8 @@
 
 /* Begin PBXFileReference section */
 		6C3AC7A11FB4B29D00411A73 /* UVCheckerMap01-1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UVCheckerMap01-1024.png"; sourceTree = "<group>"; };
+		6C3ED0AD1FCFF4F000710239 /* Skybox.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Skybox.vs; sourceTree = "<group>"; };
+		6C3ED0AE1FCFF4FC00710239 /* Skybox.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Skybox.fs; sourceTree = "<group>"; };
 		6C5D010C1FBDD00600D8300A /* sphere.obj */ = {isa = PBXFileReference; lastKnownFileType = text; path = sphere.obj; sourceTree = "<group>"; };
 		6C5F5EBD1FB4B70A00AA508F /* libpng16.16.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpng16.16.dylib; path = ../../../../../usr/local/Cellar/libpng/1.6.34/lib/libpng16.16.dylib; sourceTree = "<group>"; };
 		6C5F5ED11FB4BEBB00AA508F /* libassimp.4.0.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.4.0.1.dylib; path = ../../../../../usr/local/Cellar/assimp/4.0.1/lib/libassimp.4.0.1.dylib; sourceTree = "<group>"; };
@@ -65,6 +75,8 @@
 		6C5F5ED71FB4C15C00AA508F /* monkey.obj */ = {isa = PBXFileReference; lastKnownFileType = text; path = monkey.obj; sourceTree = "<group>"; };
 		6C6293E01FBD856600198D4D /* ModelObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ModelObject.cpp; sourceTree = "<group>"; };
 		6C6293E11FBD856600198D4D /* ModelObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ModelObject.hpp; sourceTree = "<group>"; };
+		6C6CA9201FCF048100FABE3B /* winter-2383930_1280.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "winter-2383930_1280.png"; sourceTree = "<group>"; };
+		6C6CA9251FCF160C00FABE3B /* skybox.obj */ = {isa = PBXFileReference; lastKnownFileType = text; path = skybox.obj; sourceTree = "<group>"; };
 		6CB964B01FBDCD7A00E63C2D /* Bullet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Bullet.cpp; sourceTree = "<group>"; };
 		6CB964B11FBDCD7A00E63C2D /* Bullet.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Bullet.hpp; sourceTree = "<group>"; };
 		6CD13A5D1FB385E20024DF97 /* Red.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Red.fs; sourceTree = "<group>"; };
@@ -103,6 +115,8 @@
 				6CDD60B11FB4E3A5002966F0 /* Basic.fs */,
 				6CD13A5D1FB385E20024DF97 /* Red.fs */,
 				6CD13A5E1FB386190024DF97 /* Red.vs */,
+				6C3ED0AD1FCFF4F000710239 /* Skybox.vs */,
+				6C3ED0AE1FCFF4FC00710239 /* Skybox.fs */,
 			);
 			name = Shaders;
 			sourceTree = "<group>";
@@ -110,6 +124,7 @@
 		6C3AC7A31FB4B39500411A73 /* Texture */ = {
 			isa = PBXGroup;
 			children = (
+				6C6CA9201FCF048100FABE3B /* winter-2383930_1280.png */,
 				6C3AC7A11FB4B29D00411A73 /* UVCheckerMap01-1024.png */,
 			);
 			name = Texture;
@@ -127,6 +142,7 @@
 		6C5F5ED81FB4C16600AA508F /* obj */ = {
 			isa = PBXGroup;
 			children = (
+				6C6CA9251FCF160C00FABE3B /* skybox.obj */,
 				6C5D010C1FBDD00600D8300A /* sphere.obj */,
 				6C5F5ED71FB4C15C00AA508F /* monkey.obj */,
 			);
