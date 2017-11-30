@@ -10,6 +10,8 @@
 		6C3AC79F1FB3923000411A73 /* Red.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6CD13A5D1FB385E20024DF97 /* Red.fs */; };
 		6C3AC7A01FB3923000411A73 /* Red.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6CD13A5E1FB386190024DF97 /* Red.vs */; };
 		6C3AC7A21FB4B39000411A73 /* UVCheckerMap01-1024.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C3AC7A11FB4B29D00411A73 /* UVCheckerMap01-1024.png */; };
+		6C3ED0AF1FCFF58200710239 /* Skybox.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C3ED0AD1FCFF4F000710239 /* Skybox.vs */; };
+		6C3ED0B01FCFF58200710239 /* Skybox.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C3ED0AE1FCFF4FC00710239 /* Skybox.fs */; };
 		6C5D010D1FBDD00C00D8300A /* sphere.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C5D010C1FBDD00600D8300A /* sphere.obj */; };
 		6C5F5EBE1FB4B70A00AA508F /* libpng16.16.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5F5EBD1FB4B70A00AA508F /* libpng16.16.dylib */; };
 		6C5F5ED21FB4BEBC00AA508F /* libassimp.4.0.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5F5ED11FB4BEBB00AA508F /* libassimp.4.0.1.dylib */; };
@@ -35,6 +37,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				6C3ED0AF1FCFF58200710239 /* Skybox.vs in CopyFiles */,
+				6C3ED0B01FCFF58200710239 /* Skybox.fs in CopyFiles */,
 				6CDD60B21FB4E58C002966F0 /* Basic.vs in CopyFiles */,
 				6CDD60B31FB4E58C002966F0 /* Basic.fs in CopyFiles */,
 				6C3AC79F1FB3923000411A73 /* Red.fs in CopyFiles */,
@@ -60,6 +64,8 @@
 
 /* Begin PBXFileReference section */
 		6C3AC7A11FB4B29D00411A73 /* UVCheckerMap01-1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UVCheckerMap01-1024.png"; sourceTree = "<group>"; };
+		6C3ED0AD1FCFF4F000710239 /* Skybox.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Skybox.vs; sourceTree = "<group>"; };
+		6C3ED0AE1FCFF4FC00710239 /* Skybox.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Skybox.fs; sourceTree = "<group>"; };
 		6C5D010C1FBDD00600D8300A /* sphere.obj */ = {isa = PBXFileReference; lastKnownFileType = text; path = sphere.obj; sourceTree = "<group>"; };
 		6C5F5EBD1FB4B70A00AA508F /* libpng16.16.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpng16.16.dylib; path = ../../../../../usr/local/Cellar/libpng/1.6.34/lib/libpng16.16.dylib; sourceTree = "<group>"; };
 		6C5F5ED11FB4BEBB00AA508F /* libassimp.4.0.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.4.0.1.dylib; path = ../../../../../usr/local/Cellar/assimp/4.0.1/lib/libassimp.4.0.1.dylib; sourceTree = "<group>"; };
@@ -109,6 +115,8 @@
 				6CDD60B11FB4E3A5002966F0 /* Basic.fs */,
 				6CD13A5D1FB385E20024DF97 /* Red.fs */,
 				6CD13A5E1FB386190024DF97 /* Red.vs */,
+				6C3ED0AD1FCFF4F000710239 /* Skybox.vs */,
+				6C3ED0AE1FCFF4FC00710239 /* Skybox.fs */,
 			);
 			name = Shaders;
 			sourceTree = "<group>";
