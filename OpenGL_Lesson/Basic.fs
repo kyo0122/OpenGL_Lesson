@@ -39,7 +39,7 @@ void main() {
     //  - 他の方向を見ている -> < 1
     float cosAlpha = clamp( dot( E,R ), 0,1 );
     
-    // texture(textureSampler, UV).rgb
-    color = texture(textureSampler, UV).rgb * LightColor * LightPower * cosTheta / (distance_*distance_) + LightColor * LightPower * pow(cosAlpha,5) / (distance_*distance_);
+    // texture(textureSampler, UV).bgr
+    color = texture(textureSampler, UV).bgr * LightColor * LightPower * cosTheta / (distance_*distance_) + LightColor * LightPower * pow(cosAlpha,5) / (distance_*distance_);
 }
 
