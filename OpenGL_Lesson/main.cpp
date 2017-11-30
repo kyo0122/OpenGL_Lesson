@@ -41,10 +41,7 @@ int main() {
     glEnable(GL_DEPTH_TEST);
     
     ModelObject skybox("skybox.obj", "Skybox");
-//    monkey.SetTexture("winter-2383930_1280.png");
     skybox.SetTexture("winter-2383930_1280.png");
-    
-    skybox.scale = vec3(10, 10, 10);
     
     Camera cam(vec3(0, 0, 0), window);
     
@@ -55,8 +52,7 @@ int main() {
         
         cam.controller(window);
         
-//        skybox.SetPosition(cam.GetPosition());
-//        skybox.position=cam.GetPosition();
+        skybox.position = cam.GetPosition();
         skybox.Rendering(cam);
          
         glfwSwapBuffers(window);
