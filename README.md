@@ -4,12 +4,24 @@
   - Xcode7.3
   - [Homebrew](https://brew.sh/index_ja.html)
   - 使用する(もしくは予定がある)ライブラリ
-    - [glfw3](http://www.glfw.org)
-    - [glew](http://glew.sourceforge.net)
-    - [glm](https://www.opengl.org/sdk/libs/GLM/)
     - [assimp](http://assimp.org)
+      - 3Dファイルを色々読み込むことができる。  
+        ライセンスは三条項BSD。
+    - [glfw3](http://www.glfw.org)
+      - OpenGLを簡単に扱えるようにする。  
+        ライセンスはzlib/libpng。
+    - [glew](http://glew.sourceforge.net)
+      - OpneGLを拡張してくれる。  
+        ライセンスは[ちょっと特殊](http://glew.sourceforge.net/glew.txt)。
+    - [glm](https://www.opengl.org/sdk/libs/GLM/)
+      - 行列計算などを楽にしてくれる。
+        ライセンスは[これ](https://github.com/g-truc/glm/blob/master/manual.md#section0)。
     - [libpng](http://libpng.org/pub/png/libpng.html)
+      - png画像を読み込める。
+        ライセンスはlibpng。
     - [ImGui](https://github.com/ocornut/imgui)
+      - OpneGLでUIを簡単に用意できる。
+        ライセンスはMIT。
 
 Homebrewは、ターミナルを起動して  
 `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`  
@@ -17,7 +29,7 @@ Homebrewは、ターミナルを起動して
 詳細は公式サイトに載っていますので、そちらを確認してください。  
 
 使用する各ライブラリは、  
-`brew install glfw glew glm assimp libpng`  
+`brew install assimp glfw glew glm libpng`  
 と入力することでインストールできます。  
 
 ## 機能ごとのリポジトリ確認方法
