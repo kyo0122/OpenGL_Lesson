@@ -15,10 +15,29 @@
 #include "imgui.h"
 #include "imgui_impl_glfw_gl3.h"
 
+#include <AL/alut.h>
 
 void initWindowHints();
 
 int main() {
+    
+    // alutの初期化です
+    alutInit(NULL, NULL);
+    
+    // バッファと再生用の変数です。
+    ALuint buffer, source;
+    
+    // バッファ内にwavファイルを読み込みます
+    buffer = alutCreateBufferFromFile("5610.wav");
+    
+    alGenSources(1, &source);
+    alSourcei(source, AL_BUFFER, buffer);
+//    alSourcei(source, AL_LOOPING, AL_TRUE);   // この行を実行すると、ループ再生します
+    
+    // 再生
+    alSourcePlay(source);
+    
+    
     
     if (!glfwInit()){
         return -1;
