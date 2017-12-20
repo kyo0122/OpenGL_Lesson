@@ -4,6 +4,11 @@
   - Xcode7.3
   - [Homebrew](https://brew.sh/index_ja.html)
   - 使用する(もしくは予定がある)ライブラリ
+    - [alut](http://t2sde.org/packages/8.0/freealut.html)
+      - OpenALを扱いやすくしてくれる。  
+        ライセンスはGPL。  
+        このライセンスは結構エグい制約を課してくるので、  
+        余裕があれば別のものに置き換えます。  
     - [assimp](http://assimp.org)
       - 3Dファイルを色々読み込むことができる。  
         ライセンスは三条項BSD。
