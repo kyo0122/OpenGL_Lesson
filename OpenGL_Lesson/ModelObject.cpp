@@ -56,7 +56,7 @@ void ModelObject::Rendering(Camera camera)
     // 変換行列を適用する処理です。順番は[移動*回転*スケール]の順番です。
     // scaleだけglmが付いているのは、メンバ変数と被ってしまったからです。
     // toMat4は、クォータニオンを行列に変換する処理で、
-    // quatは、オイラー角をクォータニオンに変換する処理です。
+    // quatは、ラジアン角をクォータニオンに変換する処理です。
     modelMatrix = translate(mat4(), position) * toMat4(quat(rotation)) * glm::scale(mat4(), scale);
     
     glUniformMatrix4fv(modelMatrixID, 1, GL_FALSE, &modelMatrix[0][0]);
