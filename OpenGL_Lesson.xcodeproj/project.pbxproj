@@ -227,8 +227,8 @@
 		BAC5A3291FB2F47E009D42AA /* OpenGL_Lesson */ = {
 			isa = PBXGroup;
 			children = (
-				BAC5A32A1FB2F47E009D42AA /* main.cpp */,
 				6C5F5ED31FB4BEF700AA508F /* global.h */,
+				BAC5A32A1FB2F47E009D42AA /* main.cpp */,
 				6C6293E01FBD856600198D4D /* ModelObject.cpp */,
 				6C6293E11FBD856600198D4D /* ModelObject.hpp */,
 				6CB964B01FBDCD7A00E63C2D /* Bullet.cpp */,
