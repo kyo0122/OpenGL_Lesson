@@ -15,7 +15,7 @@ Camera::Camera(vec3 position, GLFWwindow *window)
     // ウィンドウの縦横幅を取得して、アスペクト比を求めています。
     int w, h;
     glfwGetWindowSize(window, &w, &h);
-    aspect = w / h;
+    aspect = (float)w / (float)h;
 }
 
 void Camera::controller(GLFWwindow *window)
