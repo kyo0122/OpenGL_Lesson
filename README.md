@@ -34,7 +34,7 @@ Homebrewは、ターミナルを起動して
 詳細は公式サイトに載っていますので、そちらを確認してください。  
 
 使用する各ライブラリは、  
-`brew install assimp glfw glew glm libpng`  
+`brew install alut assimp glfw glew glm libpng`  
 と入力することでインストールできます。  
 
 ## 機能ごとのリポジトリ確認方法
